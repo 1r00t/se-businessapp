@@ -20,6 +20,7 @@ public class IndividualCustomerTest {
         customer.setFirstName(null);
         assertEquals(customer.getFirstName(), null);
 
+        
         customer.setFirstName("");
         assertEquals(customer.getFirstName(), "");
     }
