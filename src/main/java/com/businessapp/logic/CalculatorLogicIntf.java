@@ -20,6 +20,7 @@ public interface CalculatorLogicIntf extends LogicIntf {
 		K_4,	K_5,	K_6,	K_MIN,
 		K_1,	K_2,	K_3,	K_PLUS,
 		K_0,	K_1000,	K_DOT,	K_EQ,
+        K_BRO,   K_BRC,
 	};
 
 	final String[] KeyLabels = new String[] {
@@ -29,6 +30,7 @@ public interface CalculatorLogicIntf extends LogicIntf {
 		"4",	"5",	"6",	"-",
 		"1",	"2",	"3",	"+",
 		"0",	"1000",	",",	"=",
+		"(",	")",
 	};
 
 	final Object[][] ShortCutKeys = new Object[][] {
