@@ -124,30 +124,39 @@ class CalculatorLogic implements CalculatorLogicIntf {
         }
     }
 
-    public void solve() {
-        SIDEAREA.set("");
+    /*
+     * Private method(s).
+     */
+
+    private void appendBuffer(String d) {
+        if (dsb.length() <= DISPLAY_MAXDIGITS) {
+            dsb.append(d);
+        }
+    }
+
+    private void solve() {
+        // Versucht die eingegebene Gleichung zu lösen
         try {
-            SIDEAREA.set((calculate(DISPLAY.getValue()).toString()));
+            String result = String.format("%.2f", calculate(DISPLAY.getValue()));
+            SIDEAREA.set("");
+            SIDEAREA.set(result);
         } catch(NumberFormatException | StringIndexOutOfBoundsException e) {
             SIDEAREA.set("Eingabe Fehlerhaft!");
         }
     }
 
-    public static Double calculate(String expression) throws NumberFormatException, StringIndexOutOfBoundsException {
+    private static Double calculate(String expression) throws NumberFormatException, StringIndexOutOfBoundsException {
+        // Löst die eingegebene Gleichung
         if (expression == null || expression.length() == 0) {
             return null;
         }
-        return calc(expression.replace(" ", ""));
-    }
-
-    public static Double calc(String expression) {
-
         if (expression.startsWith("(") && expression.endsWith(")")) {
-            return calc(expression.substring(1, expression.length() - 1));
+            // Eliminiert äußere Klammern
+            return calculate(expression.substring(1, expression.length() - 1));
         }
-        String[] containerArr = new String[]{expression};
-        double leftVal = getNextOperand(containerArr);
-        expression = containerArr[0];
+        String[] exprArray = new String[]{expression}; // String array mit expression
+        double leftVal = getNextOperand(exprArray); // Der nächste Operand.
+        expression = exprArray[0];
         if (expression.length() == 0) {
             return leftVal;
         }
@@ -155,9 +164,9 @@ class CalculatorLogic implements CalculatorLogicIntf {
         expression = expression.substring(1);
 
         while (operator == '*' || operator == '/') {
-            containerArr[0] = expression;
-            double rightVal = getNextOperand(containerArr);
-            expression = containerArr[0];
+            exprArray[0] = expression;
+            double rightVal = getNextOperand(exprArray);
+            expression = exprArray[0];
             if (operator == '*') {
                 leftVal = leftVal * rightVal;
             } else {
@@ -171,27 +180,29 @@ class CalculatorLogic implements CalculatorLogicIntf {
             }
         }
         if (operator == '+') {
-            return leftVal + calc(expression);
+            return leftVal + calculate(expression);
         } else {
-            return leftVal - calc(expression);
+            return leftVal - calculate(expression);
         }
 
     }
 
     private static double getNextOperand(String[] exp){
-        double res;
+        // Liefert den nächsten Operanden zurück
+        double result;
         if (exp[0].startsWith("(")) {
-            int open = 1;
+            int numOpenBrackets = 1;
             int i = 1;
-            while (open != 0) {
+            while (numOpenBrackets != 0) {
+                // finde innerste Klammer
                 if (exp[0].charAt(i) == '(') {
-                    open++;
+                    numOpenBrackets++;
                 } else if (exp[0].charAt(i) == ')') {
-                    open--;
+                    numOpenBrackets--;
                 }
                 i++;
             }
-            res = calc(exp[0].substring(1, i - 1));
+            result = calculate(exp[0].substring(1, i - 1)); // innerste Klammer ausrechnen
             exp[0] = exp[0].substring(i);
         } else {
             int i = 1;
@@ -201,27 +212,18 @@ class CalculatorLogic implements CalculatorLogicIntf {
             while (exp[0].length() > i && isNumber((int) exp[0].charAt(i))) {
                 i++;
             }
-            res = Double.parseDouble(exp[0].substring(0, i));
+            result = Double.parseDouble(exp[0].substring(0, i));
             exp[0] = exp[0].substring(i);
         }
-        return res;
+        return result;
     }
 
-
     private static boolean isNumber(int c) {
+        // char in int umwandeln
         int zero = (int) '0';
         int nine = (int) '9';
         return (c >= zero && c <= nine) || c =='.';
-    }
 
-
-    /*
-     * Private method(s).
-     */
-    private void appendBuffer(String d) {
-        if (dsb.length() <= DISPLAY_MAXDIGITS) {
-            dsb.append(d);
-        }
     }
 
 }
