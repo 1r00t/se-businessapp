@@ -5,68 +5,68 @@ Mat.-Nr.:			854121
 Geschäftskontext:	Tauchbasis mit Ausrüstungsverleih
 
 
-1. 		Nennen Sie 5 Artikel, die in Ihrem Kontext für die Ausleihe sinnvoll sind.
-		
-		Tauchflaschen, Tarierjackets, Atemregler, Tauchanzüge, Flossen
+1.	Nennen Sie 5 Artikel, die in Ihrem Kontext für die Ausleihe sinnvoll sind.
+	
+	Tauchflaschen, Tarierjackets, Atemregler, Tauchanzüge, Flossen
 
 
-2. 		Benennen Sie die Stakeholder und Akteure, die in Ihrem Kontext eine Rolle spielen.
-		
-		Akteure:
-			- Angestellte
-			- Kunden
-			- Filialleiter
-		Stakeholder:
-			- Geschäftsinhaber
+2.	Benennen Sie die Stakeholder und Akteure, die in Ihrem Kontext eine Rolle spielen.
+	
+	Akteure:
+		- Angestellte
+		- Kunden
+		- Filialleiter
+	Stakeholder:
+		- Geschäftsinhaber
 
 
-3. 		Geben Sie eine kurze Problemdefinition.
+3.	Geben Sie eine kurze Problemdefinition.
 
-		Wenn jemand an der Tauchbasis etwas Equipment ausleihen möchte
-		verliert man schnell den Überblick, wer, wann, was ausgeliehen hat,
-		wann er es zurückgeben muss und wieviel bezahlt wurde.
-
-
-4. 		Formulieren Sie die wichtigsten Ziele der angestrebten Lösung:
-
-		Die Lösung soll den Ausleihprozess vereinfachen und für Übersichtlichkeit sorgen.
-		Es soll möglich sein jeder Zeit einen Überblick zu haben, wer was und wann ausgeliehen hat.
-		Weiterhin soll die Lösung dafür sorgen, dass bei Unregelmäßigkeiten im Verleihprozess
-		die beteiligten Akteure darauf hingewiesen werden, wenn zum Beispiel ein Stück
-		Equipment nicht rechtzeitig zurückgegeben wird.
-		Außerdem soll die Lösung Zustand und Wartungszeiträume des zu verleihenden Equipments
-		überwachen und den Filialleiter oder die Angestellten auf kurz bevorstehende
-		Wartungsarbeiten aufmerksam machen. Man muss in der Lage sein,
-		Gegenstände dem System hinzuzufügen, zu entfernen oder zu bearbeiten.
-		Zudem soll die Lösung die Möglichkeit bieten Kundenkonten anzulegen,
-		damit der Verleihprozess bei wiederkehrenden Kunden vereinfacht und verschnellert wird.
-		Ein Kunde soll aber nicht gezwungen sein ein Konto anzulegen um in der Lage zu sein einen
-		Gegenstand auszuleihen. Die Lösung sollte auch die Möglichkeit bieten Gegenstände für
-		bestimmte Zeiträume für Kunden zu reservieren.
-		Dazu soll ein Kundenkonto Voraussetzung sein.
+	Wenn jemand an der Tauchbasis etwas Equipment ausleihen möchte
+	verliert man schnell den Überblick, wer, wann, was ausgeliehen hat,
+	wann er es zurückgeben muss und wieviel bezahlt wurde.
 
 
-5. 5.	Beschreiben Sie, was Sie in fiktiven Interviews mit den Stakeholdern bzw. Akteuren als
-		deren Wünsche oder Erwartungen an das Ausleihsystem erfahren haben.
-		Verwenden Sie die Form von User Stories und versuchen Sie,
-		das oben beschrieben Scenario abzudecken.
-		Als Zielvorgabe sollten ca. 10‐15 User Stories entstehen.
+4.	Formulieren Sie die wichtigsten Ziele der angestrebten Lösung:
 
-		#0010: Als Kunde möchte ich Tauchequipment ausleihen
-		#0020: Als Kunde möchte ich mir den Verleihzeitraum aussuchen können.
-		#0020: Als Kunde möchte ich in bar bezahlen können.
-		#0030: Als Kunde möchte ich Elektronisch(Online) bezahlen können.
-		#0040: Als Kunde möchte ich für einen Zeitraum einen Gegenstand reservieren.
-		#0050: Als Kunde möchte ich ein Kundenkonto anlegen können.
-		#0060: Als Kunde möchte ich eventuell kaputtes Equipment austauschen können.
-		#0070: Als Kunde möchte ich Equipment zurückgeben können.
-		#0080: Als Filialleiter möchte ich eine Übersicht über ausgeliehenes Equipment haben.
-		#0090: Als Filialleiter möchte ich benachrichtigt werden, wenn eine Wartung ansteht.
-		#0100: Als Filialleiter möchte ich neues Equipment hinzufügen können.
-		#0110: Als Filialleiter möchte ich Equipment aus dem System entfernen können.
-		#0120: Als Filialleiter möchte ich Equipment bearbeiten können.
-		#0130: Als Angestellter möchte ich Equipment verleihen können.
-		#0140: Als Angestellter möchte ich eine Zahlung entgegennehmen können.
-		#0150: Als Angestellter möchte ich verliehenes Equipment wieder entgegennehmen können.
-		#0160: Als Angestellter möchte ich den Zustand des erhaltenen Equipments bearbeiten können.
-		#0170: Als Angestellter möchte ich ein Kundenkonto für einen Kunden anlegen können.
+	Die Lösung soll den Ausleihprozess vereinfachen und für Übersichtlichkeit sorgen.
+	Es soll möglich sein jeder Zeit einen Überblick zu haben, wer was und wann ausgeliehen hat.
+	Weiterhin soll die Lösung dafür sorgen, dass bei Unregelmäßigkeiten im Verleihprozess
+	die beteiligten Akteure darauf hingewiesen werden, wenn zum Beispiel ein Stück
+	Equipment nicht rechtzeitig zurückgegeben wird.
+	Außerdem soll die Lösung Zustand und Wartungszeiträume des zu verleihenden Equipments
+	überwachen und den Filialleiter oder die Angestellten auf kurz bevorstehende
+	Wartungsarbeiten aufmerksam machen. Man muss in der Lage sein,
+	Gegenstände dem System hinzuzufügen, zu entfernen oder zu bearbeiten.
+	Zudem soll die Lösung die Möglichkeit bieten Kundenkonten anzulegen,
+	damit der Verleihprozess bei wiederkehrenden Kunden vereinfacht und verschnellert wird.
+	Ein Kunde soll aber nicht gezwungen sein ein Konto anzulegen um in der Lage zu sein einen
+	Gegenstand auszuleihen. Die Lösung sollte auch die Möglichkeit bieten Gegenstände für
+	bestimmte Zeiträume für Kunden zu reservieren.
+	Dazu soll ein Kundenkonto Voraussetzung sein.
+
+
+5.	Beschreiben Sie, was Sie in fiktiven Interviews mit den Stakeholdern bzw. Akteuren als
+	deren Wünsche oder Erwartungen an das Ausleihsystem erfahren haben.
+	Verwenden Sie die Form von User Stories und versuchen Sie,
+	das oben beschrieben Scenario abzudecken.
+	Als Zielvorgabe sollten ca. 10‐15 User Stories entstehen.
+
+	#0010: Als Kunde möchte ich Tauchequipment ausleihen
+	#0020: Als Kunde möchte ich mir den Verleihzeitraum aussuchen können.
+	#0020: Als Kunde möchte ich in bar bezahlen können.
+	#0030: Als Kunde möchte ich Elektronisch(Online) bezahlen können.
+	#0040: Als Kunde möchte ich für einen Zeitraum einen Gegenstand reservieren.
+	#0050: Als Kunde möchte ich ein Kundenkonto anlegen können.
+	#0060: Als Kunde möchte ich eventuell kaputtes Equipment austauschen können.
+	#0070: Als Kunde möchte ich Equipment zurückgeben können.
+	#0080: Als Filialleiter möchte ich eine Übersicht über ausgeliehenes Equipment haben.
+	#0090: Als Filialleiter möchte ich benachrichtigt werden, wenn eine Wartung ansteht.
+	#0100: Als Filialleiter möchte ich neues Equipment hinzufügen können.
+	#0110: Als Filialleiter möchte ich Equipment aus dem System entfernen können.
+	#0120: Als Filialleiter möchte ich Equipment bearbeiten können.
+	#0130: Als Angestellter möchte ich Equipment verleihen können.
+	#0140: Als Angestellter möchte ich eine Zahlung entgegennehmen können.
+	#0150: Als Angestellter möchte ich verliehenes Equipment wieder entgegennehmen können.
+	#0160: Als Angestellter möchte ich den Zustand des erhaltenen Equipments bearbeiten können.
+	#0170: Als Angestellter möchte ich ein Kundenkonto für einen Kunden anlegen können.
