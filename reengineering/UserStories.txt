@@ -46,7 +46,7 @@ Geschäftskontext:	Tauchbasis mit Ausrüstungsverleih
 		Dazu soll ein Kundenkonto Voraussetzung sein.
 
 
-5. 5. 	Beschreiben Sie, was Sie in fiktiven Interviews mit den Stakeholdern bzw. Akteuren als
+5. 5.	Beschreiben Sie, was Sie in fiktiven Interviews mit den Stakeholdern bzw. Akteuren als
 		deren Wünsche oder Erwartungen an das Ausleihsystem erfahren haben.
 		Verwenden Sie die Form von User Stories und versuchen Sie,
 		das oben beschrieben Scenario abzudecken.
