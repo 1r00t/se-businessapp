@@ -79,10 +79,10 @@ class CalculatorLogic implements CalculatorLogicIntf {
                     break;
 
                 case K_VAT:
-                    solve();
-                    double inputNums = Double.parseDouble(SIDEAREA.get());
-                    double mwst = inputNums * VAT_RATE / 100;
-                    double netto = inputNums - mwst;
+                    if (!solve()) break;
+                    double inputNums = Double.parseDouble(SIDEAREA.get().replace(",", "."));
+                    double netto = inputNums / ((VAT_RATE + 100) / 100);
+                    double mwst = inputNums - netto;
                     SIDEAREA.set(
 
                             String.format("Brutto: %.2f\n%.2f%% Mwst: %.2f\nNetto: %.2f", inputNums, VAT_RATE, mwst, netto)
@@ -90,6 +90,7 @@ class CalculatorLogic implements CalculatorLogicIntf {
                             //"Brutto:  " + inputNums + "\n" +
                             //        VAT_RATE + "% MwSt: " + mwst + "\n" +
                             //        "Netto:  " +
+
                     );
 
                     break;
@@ -134,14 +135,16 @@ class CalculatorLogic implements CalculatorLogicIntf {
         }
     }
 
-    private void solve() {
+    private boolean solve() {
         // Versucht die eingegebene Gleichung zu lösen
         try {
             String result = String.format("%.2f", calculate(DISPLAY.getValue()));
             SIDEAREA.set("");
             SIDEAREA.set(result);
+            return true;
         } catch(NumberFormatException | StringIndexOutOfBoundsException e) {
             SIDEAREA.set("Eingabe Fehlerhaft!");
+            return false;
         }
     }
 
