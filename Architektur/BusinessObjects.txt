@@ -1,0 +1,4 @@
+Kunde
+Equipment
+Ausleihe
+Reservierung
