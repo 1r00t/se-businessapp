@@ -1,29 +1,17 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
-#X__FXID_EntityTable .table-cell, .label {
-    -fx-alignment: center;
-}
+/*
+ * JavaFX CSS.
+ * See also: https://docs.oracle.com/cd/E17802_01/javafx/javafx/1.3/docs/api/javafx.scene/doc-files/cssref.html
+ * 
+*/
 
-#FXID_EntityTable .col-left > .table-cell {
-    -fx-alignment: center-left;
-}
+.root {
+	/* 960x540 */
+	-fx-pref-width: 768px;
+	-fx-pref-height: 432px;
 
-#FXID_EntityTable .col-center > .table-cell {
-    -fx-alignment: center;
-}
-
-#FXID_EntityTable .col-right > .table-cell {
-    -fx-alignment: center-right;
-}
-
-#FXID_EntityTable .column-header.col-left > .label {
-    -fx-alignment: center-left;
-}
-
-#FXID_EntityTable .column-header.col-center > .label {
-    -fx-alignment: center;
-}
-
-#FXID_EntityTable .column-header.col-right > .label {
-    -fx-alignment: center-right;
+	/* Restrict window resizing, -- Java 9 */
+	-fx-max-width: 1200px;
+	-fx-min-width:  520px;
+	-fx-min-height: 420px;
 }

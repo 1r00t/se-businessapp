@@ -6,5 +6,6 @@ info.txt
 src/main/java/com/businessapp/demo
 target
 .idea
-businessapp.iml
 .gitignore.swp
+out/
+*.iml
