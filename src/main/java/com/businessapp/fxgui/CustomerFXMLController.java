@@ -75,7 +75,8 @@ public class CustomerFXMLController implements FXMLControllerIntf {
 	private final ObservableList<Customer> cellDataObservable = FXCollections.observableArrayList();
 
 	private final String LABEL_ID		= "Kund.-Nr.";
-	private final String LABEL_NAME		= "Name";
+	private final String LABEL_FIRSTNAME		= "Vorname";
+	private final String LABEL_LASTNAME		= "Nachname";
 	private final String LABEL_STATUS	= "Status";
 	private final String LABEL_NOTES	= "Anmerk.";
 	private final String LABEL_CONTACT	= "Kontakt";
@@ -153,12 +154,20 @@ public class CustomerFXMLController implements FXMLControllerIntf {
 		/*
 		 * Variation 2: Programmatically construct TableView columns.
 		 */
-		TableColumn<Customer,String> tableCol_NAME = new TableColumn<>( LABEL_NAME );
-		tableCol_NAME.getStyleClass().add( "tableview-customer-column-name" );
-		tableCol_NAME.setCellValueFactory( cellData -> {
+		TableColumn<Customer,String> tableCol_FIRSTNAME = new TableColumn<>( LABEL_FIRSTNAME );
+		tableCol_FIRSTNAME.getStyleClass().add( "tableview-customer-column-name" );
+		tableCol_FIRSTNAME.setCellValueFactory( cellData -> {
 			StringProperty observable = new SimpleStringProperty();
 			Customer c = cellData.getValue();
-			observable.set( c.getName() );
+			observable.set( c.getFistName() );
+			return observable;
+		});
+		TableColumn<Customer,String> tableCol_LASTNAME = new TableColumn<>( LABEL_LASTNAME );
+		tableCol_LASTNAME.getStyleClass().add( "tableview-customer-column-name" );
+		tableCol_LASTNAME.setCellValueFactory( cellData -> {
+			StringProperty observable = new SimpleStringProperty();
+			Customer c = cellData.getValue();
+			observable.set( c.getLastName() );
 			return observable;
 		});
 
@@ -260,7 +269,8 @@ public class CustomerFXMLController implements FXMLControllerIntf {
 			fxCustomer_TableCol_ID,
 			tableCol_STATUS,
 			tableCol_NOTES,
-			tableCol_NAME,
+			tableCol_FIRSTNAME,
+			tableCol_LASTNAME,
 			tableCol_CONTACT
 		));
 
@@ -359,7 +369,8 @@ public class CustomerFXMLController implements FXMLControllerIntf {
 
 		PopupUpdateProperties dialog = new PopupUpdateProperties( label, altered, Arrays.asList(
 			new StringTestUpdateProperty( LABEL_ID, c.getId(), false ),
-			new StringTestUpdateProperty( LABEL_NAME, c.getName(), true ),
+			new StringTestUpdateProperty( LABEL_FIRSTNAME, c.getFistName(), true ),
+			new StringTestUpdateProperty( LABEL_LASTNAME, c.getLastName(), true ),
 			new StringTestUpdateProperty( LABEL_STATUS, c.getStatus().name(), true ),
 			new StringTestUpdateProperty( LABEL_CONTACT, contactsToString( c.getContacts() ), true )
 		));
@@ -378,8 +389,11 @@ public class CustomerFXMLController implements FXMLControllerIntf {
 			String alteredValue = dp.getValue();
 			//System.err.println( "altered: " + pName + " from [" + dp.prevValue() + "] to [" + alteredValue + "]" );
 
-			if( pName.equals( LABEL_NAME ) ) {
-				customer.setName( alteredValue );
+			if( pName.equals( LABEL_FIRSTNAME ) ) {
+				customer.setFirstName( alteredValue );
+			}
+			if( pName.equals( LABEL_LASTNAME ) ) {
+				customer.setLastName( alteredValue );
 			}
 			if( pName.equals( LABEL_STATUS ) ) {
 				String av = alteredValue.toUpperCase();
