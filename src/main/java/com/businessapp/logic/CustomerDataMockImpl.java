@@ -43,17 +43,18 @@ class CustomerDataMockImpl implements CustomerDataIntf {
 	 */
 	@Override
 	public void start() {
-		
+
 		String name = parent.getName();
 		if( name.equals( "Kunden" ) ) {
 			// Customer list 1
 			Customer eric = DS.newCustomer( "Eric Winter" ).addContact( "eric@gmail.com" );
 			Customer anja = DS.newCustomer( "Anja Schuhmann");
+			DS.newCustomer("Alfons Kipp").addContact("alfons284gmail.com").setNote("Kunde kam auf Empfehlung von Frau Meyer.");
 			DS.newCustomer( "Moritz Baumann" ).addContact( "moritz@gmx.de" );
-			DS.newCustomer( "Claudia Lindner" ).addContact( "beanie64@gmail.com" );
+			DS.newCustomer( "Claudia Lindner" ).addContact( "claudia@gmail.com" );
 			eric.addContact( "e532@yahoo.com" );
 			anja.addContact( "anja.schuhmann@benz.de" );
-		} else {
+		} else if ( name.equals("Kundenliste_2") ) {
 			// Customer list 2
 			DS.newCustomer( "Matteo Schwarz" ).addContact( "Grossweg 4/0, 79805 Aschaffenburg" );
 			DS.newCustomer( "Paul Neumann" ).addContact( "Engelbert-Noack-Gasse 3, 16665 Parsberg" );
@@ -73,7 +74,11 @@ class CustomerDataMockImpl implements CustomerDataIntf {
 			DS.newCustomer( "Helena Horn" ).addContact( "Stollplatz 1, 17700 Ravensburg" );
 			DS.newCustomer( "Ella Wagner" ).addContact( "Heinz-Dieter-Krebs-Weg 32, 82151 Grevenbroich" );
 			DS.newCustomer( "Niklas Frank" ).addContact( "Heinzeplatz 4, 40605 Bernburg" );
-		}
+		} else if ( name.equals("Studenten") ) {
+            DS.newCustomer("Nicolai Brandt").addContact("brandt.nicolai@gmail.com").setNote("das bin ja ich!");
+            DS.newCustomer("Thim Löllke").addContact("thim.loellke@gmail.com").setNote("dringend löschen!");
+            DS.newCustomer("Steffen Ansorge").addContact("s.ansorge@gmail.com");
+        }
 	}
 
 	@Override

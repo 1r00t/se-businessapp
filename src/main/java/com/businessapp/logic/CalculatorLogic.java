@@ -70,14 +70,19 @@ class CalculatorLogic implements CalculatorLogicIntf {
 			case K_MUL:	appendBuffer( "*" ); break;
 			case K_PLUS:appendBuffer( "+" ); break;
 			case K_MIN:	appendBuffer( "-" ); break;
-			case K_EQ:	appendBuffer( "=" ); break;
+			case K_EQ:
+			    //appendBuffer( "=" );
+			    solve();
+			    break;
 
 			case K_VAT:
-				view.writeSideArea(
-					"Brutto:  1,000.00\n" +
-					VAT_RATE + "% MwSt:  159.66\n" +
-					"Netto:  840.34"
-				);
+                if (!solve()) break;
+                double inputNums = Double.parseDouble(dsb.toString().replace(",", "."));
+                double netto = inputNums / ((VAT_RATE + 100) / 100);
+                double mwst = inputNums - netto;
+                view.writeSideArea(
+                        String.format("Brutto: %.2f\n%.2f%% Mwst: %.2f\nNetto: %.2f", inputNums, VAT_RATE, mwst, netto)
+                );
 				break;
 
 			case K_DOT:	appendBuffer( "." );
@@ -112,4 +117,98 @@ class CalculatorLogic implements CalculatorLogicIntf {
 		}
 	}
 
+
+	private boolean solve() {
+		// Versucht die eingegebene Gleichung zu lösen
+		try {
+			String result = String.format("%.2f", calculate(dsb.toString()));
+			view.writeSideArea("");
+			view.writeSideArea(result);
+			return true;
+		} catch(NumberFormatException | StringIndexOutOfBoundsException e) {
+			view.writeSideArea("Eingabe Fehlerhaft!");
+			return false;
+		}
+	}
+
+	private static Double calculate(String expression) throws NumberFormatException, StringIndexOutOfBoundsException {
+		// Löst die eingegebene Gleichung
+		if (expression == null || expression.length() == 0) {
+			return null;
+		}
+		if (expression.startsWith("(") && expression.endsWith(")")) {
+			// Eliminiert äußere Klammern
+			return calculate(expression.substring(1, expression.length() - 1));
+		}
+		String[] exprArray = new String[]{expression}; // String array mit expression
+		double leftVal = getNextOperand(exprArray); // Der nächste Operand.
+		expression = exprArray[0];
+		if (expression.length() == 0) {
+			return leftVal;
+		}
+		char operator = expression.charAt(0);
+		expression = expression.substring(1);
+
+		while (operator == '*' || operator == '/') {
+			exprArray[0] = expression;
+			double rightVal = getNextOperand(exprArray);
+			expression = exprArray[0];
+			if (operator == '*') {
+				leftVal = leftVal * rightVal;
+			} else {
+				leftVal = leftVal / rightVal;
+			}
+			if (expression.length() > 0) {
+				operator = expression.charAt(0);
+				expression = expression.substring(1);
+			} else {
+				return leftVal;
+			}
+		}
+		if (operator == '+') {
+			return leftVal + calculate(expression);
+		} else {
+			return leftVal - calculate(expression);
+		}
+
+	}
+
+	private static double getNextOperand(String[] exp){
+		// Liefert den nächsten Operanden zurück
+		double result;
+		if (exp[0].startsWith("(")) {
+			int numOpenBrackets = 1;
+			int i = 1;
+			while (numOpenBrackets != 0) {
+				// finde innerste Klammer
+				if (exp[0].charAt(i) == '(') {
+					numOpenBrackets++;
+				} else if (exp[0].charAt(i) == ')') {
+					numOpenBrackets--;
+				}
+				i++;
+			}
+			result = calculate(exp[0].substring(1, i - 1)); // innerste Klammer ausrechnen
+			exp[0] = exp[0].substring(i);
+		} else {
+			int i = 1;
+			if (exp[0].charAt(0) == '-') {
+				i++;
+			}
+			while (exp[0].length() > i && isNumber((int) exp[0].charAt(i))) {
+				i++;
+			}
+			result = Double.parseDouble(exp[0].substring(0, i));
+			exp[0] = exp[0].substring(i);
+		}
+		return result;
+	}
+
+	private static boolean isNumber(int c) {
+		// char in int umwandeln
+		int zero = (int) '0';
+		int nine = (int) '9';
+		return (c >= zero && c <= nine) || c =='.';
+
+	}
 }

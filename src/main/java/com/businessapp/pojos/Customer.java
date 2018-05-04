@@ -79,6 +79,10 @@ public class Customer implements EntityIntf  {
 		return notes;
 	}
 
+	public void setNote(String note) {
+		this.notes.add(new LogEntry(note));
+	}
+
 	public CustomerStatus getStatus() {
 		return status;
 	}
