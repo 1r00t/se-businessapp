@@ -22,7 +22,7 @@ class CustomerDataMockImpl implements CustomerDataIntf {
 	 * Constructor.
 	 */
 	CustomerDataMockImpl() {
-		this._data = new HashMap<String,Customer>();
+		this._data = new HashMap<String, Customer>();
 		this.DS = this;
 	}
 
