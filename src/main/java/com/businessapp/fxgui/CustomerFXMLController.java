@@ -337,7 +337,7 @@ public class CustomerFXMLController implements FXMLControllerIntf {
 
 	@FXML
 	void fxCustomer_New() {
-		Customer customer = DS.newCustomer( null );
+		Customer customer = DS.newCustomer( null, null );
 		openUpdateDialog( customer, true );
 	}
 

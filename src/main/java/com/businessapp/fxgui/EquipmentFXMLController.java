@@ -350,7 +350,7 @@ public class EquipmentFXMLController implements FXMLControllerIntf {
 
         String maintain = " - ";
         if (c.getMaintenanceDate() != null) {
-            maintain = c.getMaintenanceDate().toString();
+            maintain = dateFormat.format(c.getMaintenanceDate());
         }
 
 		PopupUpdateProperties dialog = new PopupUpdateProperties( label, altered, Arrays.asList(

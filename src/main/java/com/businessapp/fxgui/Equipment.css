@@ -37,24 +37,24 @@
 	-fx-alignment: CENTER;
 }
 
-.tableview-equipment-column-contacts .label {
+.tableview-equipment-column-wartung .label {
 	-fx-alignment: CENTER;
 	-fx-pref-width: 10000px;		/* Contacts column fills TableView width, header */
 }
-.tableview-equipment-column-contacts {
+.tableview-equipment-column-wartung {
 	-fx-alignment: CENTER-LEFT;
 	-fx-pref-width: 10000px;		/* Contacts column fills TableView width, rows */
 }
 
 
 .tableview-equipment-column-notes-button {
-  -fx-background-color: #fff4d8; 	/* color name: corn silk, #fff8dc-#000404 */
+  -fx-background-color: #82bcff; 	/* color name: corn silk, #fff8dc-#000404 */
   -fx-background-insets: 0;
   -fx-padding: 0 0 0 0;
   -fx-pref-width: 50px;
 }
 .tableview-equipment-column-notes-button:hover {
-	-fx-background-color: #ffd8bc;	/* color name: corn silk, #fff8dc-#002020 */
+	-fx-background-color: #5178a1;	/* color name: corn silk, #fff8dc-#002020 */
 }
 
 

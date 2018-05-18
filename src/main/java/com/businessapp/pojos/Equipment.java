@@ -42,7 +42,7 @@ public class Equipment implements EntityIntf{
         return status;
     }
 
-    public void setEquipmentStatus(EquipmentStatus status) {
+    public void setStatus(EquipmentStatus status) {
         this.status = status;
     }
 
@@ -58,7 +58,4 @@ public class Equipment implements EntityIntf{
         return notes;
     }
 
-    public void setStatus(EquipmentStatus status) {
-        this.status = status;
-    }
 }

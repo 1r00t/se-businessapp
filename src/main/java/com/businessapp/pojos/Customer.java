@@ -54,12 +54,12 @@ public class Customer implements EntityIntf  {
 		this.lastName = lastName;
 		this.notes.add( new LogEntry( "Customer record created." ) );
 	}
-	public Customer( String id, String name) {
+/*	public Customer( String id, String name) {
 		this.id = id==null? IDG.nextId() : id;
 		this.firstName = name.substring(0, name.indexOf(" "));
 		this.lastName = name.substring(name.indexOf(" "), name.length());;
 		this.notes.add( new LogEntry( "Customer record created." ) );
-	}
+	}*/
 
 
 	/**
@@ -111,7 +111,7 @@ public class Customer implements EntityIntf  {
 	}
 
 	public Customer setLastName( String lastName ) {
-		this.firstName = lastName;
+		this.lastName = lastName;
 		return this;
 	}
 
