@@ -9,4 +9,4 @@ target
 .gitignore.swp
 out/
 *.iml
-data/
+data
