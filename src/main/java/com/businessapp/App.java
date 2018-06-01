@@ -27,7 +27,7 @@ public class App extends Application {
 	public static final String DATA_PATH	= "data/";
 	public static final String FXML_PATH	= "fxgui/";
 	private static App _app = null;
-	private PersistenceProviderIntf persistenceProvider = PersistenceProviderFactory.getPersistenceProvider("JavaSerialization");
+	private PersistenceProviderIntf persistenceProvider = PersistenceProviderFactory.getPersistenceProvider("json");
 
 	/*
 	 * List of App components in order of appearance on the main GUI/TabPanel.

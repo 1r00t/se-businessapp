@@ -159,7 +159,7 @@ public class CustomerFXMLController implements FXMLControllerIntf {
 		tableCol_FIRSTNAME.setCellValueFactory( cellData -> {
 			StringProperty observable = new SimpleStringProperty();
 			Customer c = cellData.getValue();
-			observable.set( c.getFistName() );
+			observable.set( c.getFirstName() );
 			return observable;
 		});
 		TableColumn<Customer,String> tableCol_LASTNAME = new TableColumn<>( LABEL_LASTNAME );
@@ -237,7 +237,7 @@ public class CustomerFXMLController implements FXMLControllerIntf {
 	
 									//Event updateEvent = new ActionEvent();
 									btn.setOnMouseClicked( event -> {
-										String n = customer.getName();
+										String n = customer.getFirstName() + " " + customer.getLastName();
 										String label = ( n==null || n.length()==0 )? customer.getId() : n;
 	
 										PopupNotes popupNotes = new PopupNotes( label, nL );
@@ -364,12 +364,12 @@ public class CustomerFXMLController implements FXMLControllerIntf {
 
 	private void openUpdateDialog( Customer c, boolean newItem ) {
 		List<StringTestUpdateProperty> altered = new ArrayList<StringTestUpdateProperty>();
-		String n = c.getName();
+		String n = c.getFirstName() + " " + c.getLastName();
 		String label = ( n==null || n.length()==0 )? c.getId() : n;
 
 		PopupUpdateProperties dialog = new PopupUpdateProperties( label, altered, Arrays.asList(
 			new StringTestUpdateProperty( LABEL_ID, c.getId(), false ),
-			new StringTestUpdateProperty( LABEL_FIRSTNAME, c.getFistName(), true ),
+			new StringTestUpdateProperty( LABEL_FIRSTNAME, c.getFirstName(), true ),
 			new StringTestUpdateProperty( LABEL_LASTNAME, c.getLastName(), true ),
 			new StringTestUpdateProperty( LABEL_STATUS, c.getStatus().name(), true ),
 			new StringTestUpdateProperty( LABEL_CONTACT, contactsToString( c.getContacts() ), true )

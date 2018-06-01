@@ -2,8 +2,12 @@ package com.businessapp.pojos;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.LongFunction;
 
 import com.businessapp.logic.IDGen;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.oracle.tools.packager.Log;
 
 
 /**
@@ -69,11 +73,11 @@ public class Customer implements EntityIntf  {
 		return id;
 	}
 
-	public String getName() {
+	/*public String getName() {
 		return firstName + " " + lastName;
-	}
+	}*/
 
-	public String getFistName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
@@ -85,13 +89,23 @@ public class Customer implements EntityIntf  {
 		return contacts;
 	}
 
+	@JsonGetter("notes")
 	public List<String> getNotesAsStringList() {
-		List<String>res = new ArrayList<String>();
-		for( LogEntry n : notes ) {
-			res.add( n.toString() );
+		List<String>res = new ArrayList<>();
+		for( LogEntry logEntry : getNotes() ) {
+			res.add( logEntry.toString() );
 		}
 		return res;
 	}
+
+	@JsonSetter("notes")
+	public Customer setNotesAsStringList(String[] notesAsStr) {
+	    for (String noteAsStr: notesAsStr) {
+            LogEntry note = new LogEntry(noteAsStr);
+            getNotes().add(note);
+        }
+        return this;
+    }
 
 	public List<LogEntry> getNotes() {
 		return notes;
@@ -124,5 +138,6 @@ public class Customer implements EntityIntf  {
 		this.status = status;
 		return this;
 	}
+
 
 }

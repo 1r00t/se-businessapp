@@ -1,0 +1,16 @@
+BusinessObject
+	Customer, Equipment
+
+DataAccessObject
+	JSONPersistenceProvider	
+
+DataSource
+	data/Kunden.json
+
+TransferObject
+	JSONWrapper
+
+Factory for Data Access Objects Strategy
+	PersistenceProviderFactory
+
+	
